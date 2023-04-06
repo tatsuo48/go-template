@@ -1,0 +1,15 @@
+# Use root/example as user/password credentials
+version: '3.1'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+      args:
+        - target=dev
+    ports:
+      - "8080:8080"
+      - "2345:2345"
+    volumes:
+      - $PWD:/app
